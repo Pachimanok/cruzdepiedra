@@ -1,0 +1,369 @@
+
+/* =============== Ratacion de Tarjeta ===================== */
+
+.rotating-card-container {
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    -ms-perspective: 800px;
+    perspective: 800px;
+  }
+  .rotating-card-container-hombre {
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    -ms-perspective: 800px;
+    perspective: 800px;
+  }
+  
+  .rotating-card-container .card-rotate {
+    background: transparent;
+    box-shadow: none;
+  }
+  .rotating-card-container-hombre .card-rotate {
+    background: transparent;
+    box-shadow: none;
+  }
+  
+  
+  .rotating-card-container .card-rotate:after {
+    display: none;
+  }
+  .rotating-card-container-hombre .card-rotate:after {
+    display: none;
+  }
+  .rotating-card-container .card {
+    -webkit-transition: all 0.8s cubic-bezier(0.34, 1.45, 0.7, 1);
+    -moz-transition: all 0.8s cubic-bezier(0.34, 1.45, 0.7, 1);
+    -o-transition: all 0.8s cubic-bezier(0.34, 1.45, 0.7, 1);
+    -ms-transition: all 0.8s cubic-bezier(0.34, 1.45, 0.7, 1);
+    transition: all 0.8s cubic-bezier(0.34, 1.45, 0.7, 1);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  .rotating-card-container-hombre .card {
+    -webkit-transition: all 0.8s cubic-bezier(0.34, 1.45, 0.7, 1);
+    -moz-transition: all 0.8s cubic-bezier(0.34, 1.45, 0.7, 1);
+    -o-transition: all 0.8s cubic-bezier(0.34, 1.45, 0.7, 1);
+    -ms-transition: all 0.8s cubic-bezier(0.34, 1.45, 0.7, 1);
+    transition: all 0.8s cubic-bezier(0.34, 1.45, 0.7, 1);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  
+  .rotating-card-container .card .back,
+  .rotating-card-container .card .front {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-content: center;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -o-flex;
+    display: flex;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+  }
+  .rotating-card-container-hombre .card .back,
+  .rotating-card-container-hombre .card .front {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-content: center;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -o-flex;
+    display: flex;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+  }
+  
+  .rotating-card-container .card .back .card-body,
+  .rotating-card-container .card .front .card-body {
+    justify-content: center;
+    align-content: center;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -o-flex;
+    display: flex;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    z-index: 2000;
+  }.rotating-card-container-hombre .card .back .card-body,
+  .rotating-card-container-hombre .card .front .card-body {
+    justify-content: center;
+    align-content: center;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -o-flex;
+    display: flex;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    z-index: 2000;
+  }
+  
+  .rotating-card-container .card .back:after,
+  .rotating-card-container .card .front:after {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+    content: "";
+    border-radius: 0.5rem;
+    background-image: linear-gradient(195deg, #f5583ca6, #f5593c);
+    opacity: .85;
+  }
+
+  .rotating-card-container-hombre .card .back:after,
+  .rotating-card-container-hombre .card .front:after {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+    content: "";
+    border-radius: 0.5rem;
+    background-image: linear-gradient(195deg, #3994f4a6, #3c8af5); 
+    opacity: .85;
+  }
+
+  
+   
+  
+  .rotating-card-container .card .front {
+    z-index: 2;
+    position: relative;
+  }
+  .rotating-card-container-hombre .card .front {
+    z-index: 2;
+    position: relative;
+  }
+  
+  .rotating-card-container .card .back {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    z-index: 5;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  }
+  .rotating-card-container-hombre .card .back {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    z-index: 5;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .rotating-card-container .card .back.back-background .card-body {
+    position: relative;
+    z-index: 2;
+  }
+  .rotating-card-container-hombre .card .back.back-background .card-body {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .rotating-card-container .card .back .card-footer .btn {
+    margin: 0;
+  }
+  .rotating-card-container-hombre .card .back .card-footer .btn {
+    margin: 0;
+  }
+  
+  .rotating-card-container .card .back .card-body {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .rotating-card-container-hombre .card .back .card-body {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .rotating-card-container:not(.manual-flip):hover .card {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  .rotating-card-container-hombre:not(.manual-flip):hover .card {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  
+  .rotating-card-container.hover.manual-flip .card {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+   
+  .rotating-card-container-hombre.hover.manual-flip .card {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  
+  
+  .card-profile .rotating-card-container .front {
+    text-align: left;
+  }
+  .card-profile .rotating-card-container-hombre .front {
+    text-align: left;
+  }
+
+
+.card.card-background.card-background-mask-primary:before {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  .card.card-background.card-background-mask-primary:after {
+    background-image: linear-gradient(195deg, #ec40792f 0%, #d81b6052 100%);
+    opacity: .85;
+  }
+
+
+.shadow-primary {
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4) !important;
+  }
+  
+  a .linkFooter{
+    color: white !important;
+  }
+  a .linkFooter:hover{
+    color: gray;
+    transform: scale(1);
+  }
+
+  /* 
+  ||||||||||||||||||| ACORDION ||||||||||||||||||||||
+  */
+
+  /* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #eee;
+  color: #9a9a9a !important;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  font-weight: 600;
+  border-bottom: #9a9a9a 1px sol;
+}
+.titulo {
+  font-weight: 500 !important;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.actives, .accordion:hover {
+  background-color: #f5593c !important;
+  color: white !important;
+  font-weight: 600;
+  border: #9a9a9a 1px solid;
+  border-radius: 5px 5px 0px 0p;
+}
+.actives:hover{
+  background: #f5593c !important;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+    background-color: #ffffff1c !important;
+    display: none;
+    overflow: hidden;
+    border: #9a9a9a 1px solid;
+    border-top: none;
+    border-radius: 0px 0px 5px 5px;
+}
+.footer-brand{
+  font-weight: 600;
+  color: #f5593c;
+  font-size: x-large;
+}
+.footer-brand:hover{
+  font-weight: 600;
+  color: white;
+  font-size: x-large;
+}
+.footer-container{
+  width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (max-width: 700px) {    
+
+  .footer-container{
+    height: 0px !important;
+    display: none!important;
+  }
+  .row-container{
+    height: 0px !important;
+  }
+  .col-container{
+    height: 0px !important;
+    width: 0px !important;
+  }
+}
