@@ -69,15 +69,13 @@
 		            <!--      Wizard container        -->
 		            <div class="wizard-container">
 		                <div class="card wizard-card" data-color="azure" id="wizardProfile">
-		                    <form action="/cruzdepiedra/public/inscripcion" method="POST">
+		                    <form action="/cruzdepiedra/public/tuCuota" method="POST">
                             @csrf
 		                <!-- You can switch " data-color="orange" "  with one of the next bright colors: "blue", "green", "orange", "red", "azure"          -->
 		                    	<div class="wizard-header text-center">
-		                        	<h3 class="wizard-title">Inscripción a {{ $actividad->titulo}}</h3>
-									<p class="category">{{ $actividad->descripcion}} del {{ $actividad->FechaInicio}} al {{ $actividad->FechaFin}}</p>
-                                    @if($actividad->estado == 'llena')<span class="label label-warning">Lista de Espera</span>@endif
+		                        	<h3 class="wizard-title">Pago por medio de {{$actividad->titulo}}</h3>
+									<p class="category">Se puede pagar haste en 6 cuotas sin Interes con tarjeta de Credito o Debito.
 		                    	</div>
-
 								<div class="wizard-navigation">
 									<div class="progress-with-circle">
 									     <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" style="width: 21%;"></div>
@@ -86,25 +84,9 @@
 			                            <li>
 											<a href="#about" data-toggle="tab">
 												<div class="icon-circle">
-													<i class="ti-user"></i>
+													<i class="ti-credit-card"></i>
 												</div>
-												Datos
-											</a>
-										</li>
-			                            <li>
-											<a href="#account" data-toggle="tab">
-												<div class="icon-circle">
-													<i class="ti-notepad"></i>
-												</div>
-												Notas
-											</a>
-										</li>
-			                            <li>
-											<a href="#address" data-toggle="tab">
-												<div class="icon-circle">
-													<i class="ti-check"></i>
-												</div>
-												CheckOut
+												Crédito o Débito
 											</a>
 										</li>
 			                        </ul>
@@ -112,84 +94,44 @@
 		                        <div class="tab-content">
 		                            <div class="tab-pane" id="about">
 		                            	<div class="row">
-											<h5 class="info-text"> Complete sus datos:</h5>
+											<h5 class="info-text"> Complete los datos de su Tarjeta:</h5>
 											<div class="col-sm-8 col-sm-offset-2">
-												<div class="form-row">
-													<div class="form-group col-sm-6" style="padding-left:0; " >
-														<label>Nombre<small>*</small></label>
-														<input name="nombre" type="text" class="form-control" placeholder="Nombres">
-													</div>
-													<div class="form-group col-sm-6 ml-1" style="padding: 0">
-														<label>Apellido <small>*</small></label>
-														<input name="apellido" type="text" class="form-control" placeholder="Apellido">
-													</div>
+												<input type="hidden" name="customer_id" value="{{ $customerId}}">
+												<input type="hidden" name="description" value="{{$actividad->titulo}}">
+												<input type="hidden" name="amount" value="{{$actividad->precio}}">
+
+												<div class="form-group">
+													<label>NUMERO DE TARJETA<small>*</small></label>
+														<div class="form-group has-success">
+															<input type="number" name="payment_method_number" class="form-control" minlength="16" placeholder="Indique los 16 n[umeros de la tarjeta" />
+															<small style="color:gray;">Medios de pago disponibles: CBU, naranja-visa, Visa Crédito, Visa Débito, ArgenCard, Cencosud, CMR Falabella, Cordobesa, Diners Club, JCB, Líder, Maestro, Mastercard, Mastercard Debit, Nativa</small>
+														</div>
 												</div>
 												<div class="form-group">
-													<label>Telefono de Contacto <small>*</small></label>
-													<input name="phone" type="phone" class="form-control" placeholder="261000000">
-												</div>
-												<div class="form-group">
-													<label>Email <small>*</small></label>
-													<input name="email" type="email" class="form-control" placeholder="tunombre@dominio.com">
-												</div>
-											</div>
-										</div>
-		                            </div>
-		                            <div class="tab-pane" id="account">
-		                                <h5 class="info-text"> Notas de mi inscripción: </h5>
-		                                <div class="row">
-		                                    <div class="col-sm-8 col-sm-offset-2">
-                                                <div class="form-group">
-													<label>día que llega: <small></small></label>
-													<input name="llega" type="text" class="form-control" placeholder="Indique día y hora de llegada">
-												</div>
-                                                <div class="form-group">
-													<label>DNI - CUIL - Pasaporte: <small></small></label>
-													<input name="facturacion" type="text" class="form-control" placeholder="Para factruarle">
-												</div>
-                                                <div class="form-group">
-													<label>Dieta Espercial: <small></small></label>
-													<input name="dieta" type="text" class="form-control" placeholder="Indique tipo de Regimen">
-												</div>
-                                                <div class="form-group">
-													<label>Observaciones: <small></small></label>
-													<textarea name="observaciones"  class="form-control" placeholder="Algun comentario de utilidad"></textarea>
-												</div>
-		                                    </div>
-		                                </div>
-		                            </div>
-		                            <div class="tab-pane" id="address">
-		                                <div class="row">
-		                                    <div class="col-sm-12">
-		                                        <h5 class="info-text"> Como desea Pagar?</h5>
-		                                    </div>
-                                            <div class="col-sm-8 col-sm-offset-2">
-                                                <p class="text-center">Total:</p>
-												<input type="hidden" value="{{ $actividad->id}}" name='id_actividad'>
-                                                <h1 class="text-center text-success" style="font-size: 6rem; font-weight: 700;">$ {{$actividad->precio}}</h1>
-		                                        <input type="hidden" name="total_pago" value="{{$actividad->precio}}">
-                                                <div class="form-group">
-		                                            <label>Country</label><br>
-		                                            <select name="pago[]" class="form-control" required>
-		                                                <option value="">Elegir una Opcion</option>
-		                                                <option value="efectivo"> Efectivo </option>
-		                                                <option value="transferencia"> Transferencia </option>
-		                                                <option value="tuCuota"> TuCuota </option>
-		                                                <option value="mercadoPago"> MercadoPago</option>
-		                                                <option value="combo">Combo </option>
+		                                            <label>Cantidad Cuotas</label><br>
+		                                            <select name="count[]" class="form-control" required>
+		                                                <option value="">Elegir la cantidad de cuotas</option>
+		                                                <option value="1">1 Cuota de {{ number_format($actividad->precio / 1,2)}}</option>
+		                                                <option value="2">2 Cuotas de {{ number_format($actividad->precio / 2,2)}}</option>
+		                                                <option value="3">3 Cuotas de {{ number_format($actividad->precio / 3,2)}}</option>
+		                                                <option value="4">4 Cuotas de {{ number_format($actividad->precio / 4,2)}}</option>
+		                                                <option value="5">5 Cuotas de {{ number_format($actividad->precio / 5,2)}}</option>
+		                                                <option value="6">6 Cuotas de {{ number_format($actividad->precio / 6,2)}}</option>
+		                                                <option value="7">7 Cuotas de {{ number_format($actividad->precio / 7,2)}}</option>
+		                                                <option value="8">8 Cuotas de {{ number_format($actividad->precio / 8,2)}}</option>
 		                                            </select>
 		                                        </div>
-		                                    </div>
-		                                </div>
+											</div>
+										</div>
 		                            </div>
 		                        </div>
 		                        <div class="wizard-footer">
 		                            <div class="pull-right">
-		                                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='Continuar' />
-		                                <input type='submit' class='btn btn-finish btn-fill btn-warning btn-wd'  value='Continuar' />
+		                                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='Next' />
+		                                <input type='submit' class='btn btn-finish btn-fill btn-warning btn-wd'  value='Pagar' />
 		                            </div>
 		                            <div class="pull-left">
-		                                <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Atrás' />
+		                                <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
 		                            </div>
 		                            <div class="clearfix"></div>
 		                        </div>

@@ -30,7 +30,7 @@
   <nav class="navbar navbar-expand-lg fixed-top" >
     <div class="container">
         <div class="navbar-translate">
-            <a class="navbar-brand" href="/" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom">
+            <a class="navbar-brand" href="/cruzdepiedra/public/" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom">
                 Cruz de Piedra
             </a>
             <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
@@ -43,22 +43,22 @@
         <div class="collapse navbar-collapse justify-content-center" id="navigation">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/#about">
+                    <a class="nav-link" href="#about">
                         Acerca de
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/#galeria">
+                    <a class="nav-link" href="/cruzdepiedra/public/#galeria">
                         Galeria
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-placement="bottom" href="/actividades?act=mujeres">
+                    <a class="nav-link" data-placement="bottom" href="/cruzdepiedra/public/actividades?act=mujeres">
                         Actividades para mujeres
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/actividades?act=hombres">
+                    <a class="nav-link" href="/cruzdepiedra/public/actividades?act=hombres">
                         Actividades para Hombres
                     </a>
                 </li>
@@ -109,11 +109,11 @@
                           <td>{{ $ret->FechaInicio}} hasta {{ $ret->FechaFin}}</td>
                           @if($ret->estado == 'abierta')
                             
-                          <td><a href="/inscripcion/create?id={{ $ret->id}}" class="btn btn-outline-success btn-sm text-success">inscribirme</a></td>
+                          <td><a href="/cruzdepiedra/public/inscripcion/create?id={{ $ret->id}}" class="btn btn-outline-success btn-sm text-success">inscribirme</a></td>
                             
                           @elseif($ret->estado == 'llena')
                             
-                          <td><a href="/inscripcion/create?id={{ $ret->id}}" class="btn btn-outline-warning btn-sm text-warning"  data-toggle="tooltip" data-placement="top" title="Inscribirme en Lista de Espera">l. espera</a></td>
+                          <td><a href="/cruzdepiedra/public/inscripcion/create?id={{ $ret->id}}" class="btn btn-outline-warning btn-sm text-warning"  data-toggle="tooltip" data-placement="top" title="Inscribirme en Lista de Espera">l. espera</a></td>
                             
                           @else
                           <td><a class="btn btn-outline-danger btn-sm text-danger" data-toggle="tooltip" data-placement="top" title="La actividad cerrada" >Cerrado</a></td>
@@ -134,11 +134,11 @@
                           <td>{{ $conv->FechaInicio}} hasta {{ $conv->FechaFin}}</td>
                           @if($conv->estado == 'abierta')
                             
-                          <td><a href="/inscripcion/create?id={{ $ret->id}}" class="btn btn-outline-success btn-sm text-success">inscribirme</a></td>
+                          <td><a href="/cruzdepiedra/public/inscripcion/create?id={{ $ret->id}}" class="btn btn-outline-success btn-sm text-success">inscribirme</a></td>
                             
                           @elseif($conv->estado == 'llena')
                             
-                          <td><a href="/inscripcion/create?id={{ $ret->id}}" class="btn btn-outline-warning btn-sm text-warning"  data-toggle="tooltip" data-placement="top" title="Inscribirme en Lista de Espera">l. espera</a></td>
+                          <td><a href="/cruzdepiedra/public/inscripcion/create?id={{ $ret->id}}" class="btn btn-outline-warning btn-sm text-warning"  data-toggle="tooltip" data-placement="top" title="Inscribirme en Lista de Espera">l. espera</a></td>
                             
                           @else
                           <td><a class="btn btn-outline-danger btn-sm text-danger" data-toggle="tooltip" data-placement="top" title="La actividad cerrada" >Cerrado</a></td>
@@ -158,11 +158,11 @@
                           <td>{{ $otro->FechaInicio}} hasta {{ $otro->FechaFin}}</td>
                           @if($otro->estado == 'abierta')
                             
-                          <td><a href="/inscripcion/create?id={{ $ret->id}}" class="btn btn-outline-success btn-sm text-success">inscribirme</a></td>
+                          <td><a href="/cruzdepiedra/public/inscripcion/create?id={{ $ret->id}}" class="btn btn-outline-success btn-sm text-success">inscribirme</a></td>
                             
                           @elseif($otro->estado == 'llena')
                             
-                          <td><a href="/inscripcion/create?id={{ $ret->id}}" class="btn btn-outline-warning btn-sm text-warning"  data-toggle="tooltip" data-placement="top" title="Inscribirme en Lista de Espera">l. espera</a></td>
+                          <td><a href="/cruzdepiedra/public/inscripcion/create?id={{ $ret->id}}" class="btn btn-outline-warning btn-sm text-warning"  data-toggle="tooltip" data-placement="top" title="Inscribirme en Lista de Espera">l. espera</a></td>
                           @else
                           <td><a class="btn btn-outline-danger btn-sm text-danger" data-toggle="tooltip" data-placement="top" title="La actividad cerrada" >Cerrado</a></td>
                           @endif

@@ -8,6 +8,8 @@ use App\Models\inscripcion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+Use Illuminate\Support\Facades\Session;
+
 
 class actividadController extends Controller
 {
@@ -19,8 +21,8 @@ class actividadController extends Controller
     public function index()
     {
         $act = $_GET['act'];
+    
 
-        // si es mujeres
         if( $act == 'mujeres') {
             
             $convMuj = DB::table('actividads')->where('seccion','=','mujeres')->where('tipo','=','convivencia')->orderBy('FechaInicio','ASC')->get();
@@ -39,7 +41,7 @@ class actividadController extends Controller
             return view('actividades')->with('ruta','hombre')->with('conv',$convHom)->with('ret',$retHom)->with('otros',$otrosHom);
 
         }
-        
+    
         // si es varones
 
 
@@ -53,7 +55,15 @@ class actividadController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        if($user->rol == 'A'){
+
+            $directores = DB::table('users')->where('seccion','=',$user->seccion)->get();
+            return view('AHM.createActividad')->with('user', $user)->with('directores', $directores);
+
+        }else{
+            echo 'No tenes permiso para crear Actividad';
+        }
     }
 
     /**
@@ -64,7 +74,35 @@ class actividadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+
+        foreach($request->tipo as $tipo);
+        foreach($request->subDirector as $subDirector);
+        foreach($request->director as $director);
+
+        $actividad = new actividad();
+        $actividad->titulo = $request['titulo'];
+        $actividad->descripcion = $request['descripcion'];
+        $actividad->FechaInicio = $request['FechaInicio'];
+        $actividad->horaInicio = $request['horaInicio'];
+        $actividad->FechaFin = $request['FechaFin'];
+        $actividad->horaFin = $request['horaFin'];
+        $actividad->seccion = $user->seccion;
+        $actividad->tipo = $tipo;
+        $actividad->precio = $request['precio'];
+        $actividad->estado = 'abierta';
+        if($director != null ){
+            $actividad->director = $director;
+        }
+        if($subDirector != null ){
+
+            $actividad->subDirector = $subDirector;
+
+        }
+        $actividad->save();
+
+        Session::flash('message','Se creo correctamente la Actividad');
+        return redirect('/home');
     }
 
     /**
@@ -80,8 +118,24 @@ class actividadController extends Controller
         $actividad = $qa[0];
         $participantes = DB::table('inscripcions')->where('id_actividad','=',$id)->get();
         /* dd($participantes ,$actividad); */
+        if($user->rol == 'A' ){
+           
+            if($user->seccion == $actividad->seccion){
 
-        return view('AA.indexActividad')->with('participantes', $participantes)->with('actividad', $actividad)->with('user', $user);
+                return view('AHM.indexActividad')->with('participantes', $participantes)->with('actividad', $actividad)->with('user', $user);
+            
+            }else{
+
+                echo "No estas en la seccion para ver esta actividad";
+            }
+
+        }else{
+
+            return view('AA.indexActividad')->with('participantes', $participantes)->with('actividad', $actividad)->with('user', $user);
+
+        }
+
+    
     }
 
     /**
@@ -92,7 +146,10 @@ class actividadController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Auth::user();
+        $actividad = actividad::find($id);
+        $directores = DB::table('users')->where('seccion','=',$user->seccion)->get();
+        return view('AHM.editActividad')->with('actividad',$actividad)->with('user',$user)->with('directores', $directores);
     }
 
     /**
@@ -104,6 +161,37 @@ class actividadController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
+        $user = Auth::user();
+
+        foreach($request->tipo as $tipo);
+        foreach($request->subDirector as $subDirector);
+        foreach($request->director as $director);
+
+        $actividad = actividad::find($id);
+        $actividad->titulo = $request['titulo'];
+        $actividad->descripcion = $request['descripcion'];
+        $actividad->FechaInicio = $request['FechaInicio'];
+        $actividad->horaInicio = $request['horaInicio'];
+        $actividad->FechaFin = $request['FechaFin'];
+        $actividad->horaFin = $request['horaFin'];
+        $actividad->seccion = $user->seccion;
+        $actividad->tipo = $tipo;
+        $actividad->precio = $request['precio'];
+        $actividad->estado = 'abierta';
+        if($director != null ){
+            $actividad->director = $director;
+        }
+        if($subDirector != null ){
+
+            $actividad->subDirector = $subDirector;
+
+        }
+        $actividad->save();
+
+        Session::flash('message','Se editó correctamente la Actividad');
+        return redirect('/home');
     }
 
     /**
@@ -114,6 +202,18 @@ class actividadController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $actividad = actividad::destroy($id);
+
+        
+        if($actividad == 0){
+
+            Session::flash('message','Ups, no se eliminó Actividad con ID: ' . $id);
+            return redirect('/home');
+
+        }else{
+
+            Session::flash('message','Se eliminó correctamente Actividad con ID: ' . $id);
+            return redirect('/home');
+        }
     }
 }

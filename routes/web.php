@@ -33,7 +33,8 @@ Route::get('/home', function () {
             - Crud de **Actividades**. 
              */
             $actividades = DB::table('actividads')->where('seccion','=','mujeres')->get();
-            return $actividades;
+            return view('AHM.home')->with('user',$user)->with('actividades',$actividades);
+
 
             /*  
             - Puede ver todas las actividades y sus participantes. 
@@ -42,7 +43,8 @@ Route::get('/home', function () {
         }else{
 
             $actividades = DB::table('actividads')->where('seccion','=','hombres')->get();
-            return $actividades;
+            return view('AHM.home')->with('user',$user)->with('actividades',$actividades);
+
         }
     }elseif($user->rol == 'AA'){
 
@@ -78,6 +80,8 @@ Route::get('/homeM', function () {
 Route::resource('/tuCuota','App\Http\Controllers\tuCuota');
 Route::resource('/actividades','App\Http\Controllers\actividadController');
 Route::resource('/inscripcion','App\Http\Controllers\inscripcionController');
+Route::resource('/usuarios','App\Http\Controllers\userController');
+
 
 
 

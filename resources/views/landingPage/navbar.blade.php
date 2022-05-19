@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="300">
     <div class="container">
         <div class="navbar-translate">
-            <a class="navbar-brand" href="/" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom"
+            <a class="navbar-brand" href="cruzdepiedra/public/" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom"
                >
                 Cruz de Piedra
             </a>
@@ -15,22 +15,22 @@
         <div class="collapse navbar-collapse justify-content-center" id="navigation">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/#about">
+                    <a class="nav-link" href="/cruzdepiedra/public/#about">
                         Acerca de
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/#galeria">
+                    <a class="nav-link" href="/cruzdepiedra/public/#galeria">
                         Galeria
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-placement="bottom" href="/actividades?act=mujeres">
+                    <a class="nav-link" data-placement="bottom" href="/cruzdepiedra/public/actividades?act=mujeres">
                         Actividades para mujeres
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/actividades?act=hombres">
+                    <a class="nav-link" href="/cruzdepiedra/public/actividades?act=hombres">
                         Actividades para Hombres
                     </a>
                 </li>

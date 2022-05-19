@@ -38,7 +38,7 @@
                                                 </h6>
                                                 <p class="mb-5">{{ $actividad->descripcion }}</p>
                                                 <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto"
-                                                    href="/actividades/{{$actividad->id}}">
+                                                    href="/cruzdepiedra/public/actividades/{{$actividad->id}}">
                                                     Gestionar
                                                     <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
                                                 </a>

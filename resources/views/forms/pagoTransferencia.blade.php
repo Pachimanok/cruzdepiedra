@@ -5,16 +5,14 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Cruz de Piedra :: </title>
+    <title>Cruz de Piedra :: Inscripción</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <!-- Canonical SEO -->
     <link rel="canonical" href="https://www.creative-tim.com/product/paper-bootstrap-wizard" />
 
-    {{-- icons Google --}}
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Schema.org markup for Google+ -->
     <meta itemprop="name" content="Paper Bootstrap Wizard by Creative Tim">
     <meta itemprop="image" content="https://s3.amazonaws.com/creativetim_bucket/products/49/opt_pbw_thumbnail.jpg">
@@ -54,9 +52,9 @@
 <body>
     <div class="image-container set-full-height" style="background-image: url('../../assets/img/Cruz de Piedra.png')">
         <!--   Creative Tim Branding   -->
-        <a href="/">
+        <a href="/cruzdepiedra/public/">
             <div class="logo-container">
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="/cruzdepiedra/public/">
                     Cruz de Piedra
                 </a>
             </div>
@@ -71,66 +69,61 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2">
+
                     <!--      Wizard container        -->
                     <div class="wizard-container">
-                        <div class="card wizard-card" data-color="green" id="wizardProfile">
-                            {{-- <form action="/inscripcion" method="POST">
-                            @csrf --}}
+                        <div class="card wizard-card" data-color="azure" id="wizardProfile">
+
                             <!-- You can switch " data-color="orange" "  with one of the next bright colors: "blue", "green", "orange", "red", "azure"          -->
                             <div class="wizard-header text-center">
-                                <h1 class="text-center text-success"><span class="material-icons"
-                                        style="font-size: 8rem;">
-                                        check_circle_outline
-                                    </span></h1>
-                                <h3 class="text-bold text-center">{{ $nombre }},</h3>
-                                <h3 class="wizard-title">Te has inscripto correctamente a @if ($actividad->tipo == 'convivencia')
-                                        la
-                                    @else
-                                        el
-                                    @endif {{ $actividad->titulo }}</h3>
+                                <h3 class="wizard-title">Ya estás inscripto en <br> {{ $actividad->titulo }}</h3>
+                                <p class="category">Cuando hagas la transferencia por favor envianos el
+                                    comprobante de la transferencia al mail cruzdepiedrasf@gmail.com</p>
                             </div>
-                            <div class="tab-content "
-                                style="padding-top: 1rem;padding-left: 10vw; padding-right: 10vw; ">
-
-                                @if ($actividad->estado == 'llena')
-                                    <h5 class="info-text">
-
-                                        Estas en la lista de espera. <br>
-                                        Cuando se libere un cupo nos comunicaremos con vos para que
-                                        puedas continuar con el procesos de Pago.
-                                    </h5>
-                                @else
-                                    <h5 class="info-text">{{ $actividad->descripcion }} <br>
-                                        Comienza el {{ $actividad->FechaInicio }} a las
-                                        {{ $actividad->horaInicio }} <br>
-                                        Termina el {{ $actividad->FechaFin }} a las
-                                        {{ $actividad->horaFin }} <br> </h5>
-
-                                    <h4 class="text-center">Por Cualquier inconveniente te dejamos tu
-                                        numero de ficha:</h4>
-                                    <h1 class="text-center text-info">{{ $actividad->id }}</h1>
-                                    <p class="text-center"><small>Te servira para cualquie reclamo o para
-                                            ayudar a los organizadores.</small></p>
-                                    </h5>
-									<div class="row text-center">
-										@if($pago == 'efectivo')
-										<button type='button' class='btn btn-success mx-auto ' name='previous'
-											value='Previous'>Ok, Terminar </button>
-										@elseif($pago == 'trasferencia')
-											datos transferencias
-										@elseif($pago == 'tuCuota')
-										<button type='button' class='btn btn-success mx-auto ' name='previous'
-											value='Previous'>Ir a TuCuota</button>
-										@elseif($pago == 'mercadoPago')
-										<button type='button' class='btn btn-primary mx-auto ' name='previous'
-											value='Previous'>Ir a MercadoPago</button>
-										@elseif($pago == 'combo')
-										<button type='button' class='btn btn-danger mx-auto ' name='previous'
-											value='Previous'>Ir a Pagar</button>
-										@endif
-									</div>
-                                @endif
-                                
+                            <div class="wizard-navigation">
+                                <div class="progress-with-circle">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1"
+                                        aria-valuemax="3" style="width: 21%;"></div>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="#about" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-ticket"></i>
+                                            </div>
+                                            Transferencia
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane" id="about">
+                                    <div class="row">
+                                        <h5 class="info-text">Envianos una transferencia a estos datos:</h5>
+                                        <div class="col-sm-8 col-sm-offset-2">
+                                            <p class="text-center text-secondary mt-5 pb-0 mb-0">
+                                                CTA CTE $ BANCO GALICIA
+                                                N 19479-4 081-7
+                                                <br>ASOCIACIÓN CIVIL CULTURAL DE CUYO
+                                                <br> CBU: <span id="p1"
+                                                    style="font-weight: 600;">0070081820000019479475</span>
+                                                <br>ALIAS: <span id="p2"
+                                                    style="font-weight: 600;">RetirosCruzDePiedra</span>
+                                                <br>
+                                            </p>
+                                            <br>
+                                            <div class="d-flex text-center">
+                                                <button class="btn btn-primary" onclick="copiarAlPortapapeles('p1')">
+                                                    <p id="colorp1" style="margin:0;">Copiar CBU</p>
+                                                </button>
+                                                <button class="btn btn-primary" onclick="copiarAlPortapapeles('p2')">
+                                                    <p id="colorp1" style="margin:0;">Copiar ALIAS</p>
+                                                </button>
+                                                <a class="btn btn-primary btn-fill" href="/">Terminar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div> <!-- wizard container -->
@@ -141,8 +134,7 @@
         <div class="footer">
             <div class="container text-center">
                 Made with <i class="fa fa-heart heart"></i> by <a href="https://www.creative-tim.com">Creative Tim</a>.
-                Free
-                download <a href="https://www.creative-tim.com/product/paper-bootstrap-wizard">here.</a>
+                Free download <a href="https://www.creative-tim.com/product/paper-bootstrap-wizard">here.</a>
             </div>
         </div>
         <div class="fixed-plugin">
@@ -151,7 +143,31 @@
     </div>
 
 </body>
+<script>
+    function copiarAlPortapapeles(id_elemento) {
+        var aux = document.createElement("input");
+        aux.setAttribute("value", document.getElementById(id_elemento).innerHTML);
+        document.body.appendChild(aux);
+        aux.select();
+        document.execCommand("copy");
+        document.body.removeChild(aux);
+        if (id_elemento == 'p1') {
+            var cabs = document.querySelectorAll('#colorp1');
+            cabs.forEach(function(v) {
+                v.style.color = "#193b87"
+            });
+            swal("¡CBU copiado en tu telefono", "", "success");
+        } else {
+            var cabs = document.querySelectorAll('#colorp2');
+            cabs.forEach(function(v) {
+                v.style.color = "#193b87"
+            });
+            swal("¡Alias copiado en tu telefono", "", "success");
+        }
 
+    }
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!--   Core JS Files   -->
 <script src="{{ asset('wizard/assets/js/jquery-2.2.4.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('wizard/assets/js/bootstrap.min.js') }}" type="text/javascript"></script>

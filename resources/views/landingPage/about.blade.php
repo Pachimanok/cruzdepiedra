@@ -41,7 +41,7 @@
         <div class="row justify-content-md-center sharing-area text-center">
 
             <div class="text-center col-md-12 col-lg-8 mt-5">
-                <a href="https://github.com/creativetimofficial/paper-kit"
+                <a href="#"
                     class="btn btn-github-bg btn-github sharrre btn-round" rel="tooltip" title="Star on Github">
                     Ver mas
                 </a>

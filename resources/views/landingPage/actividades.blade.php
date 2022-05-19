@@ -32,7 +32,7 @@
                                         <h6 class="text-white">Inscribite a las actividades:</h6>
                                     </div>
                                 </div>
-                                <a href="/actividades?act=mujeres"
+                                <a href="/cruzdepiedra/public/actividades?act=mujeres"
                                     class="btn btn-white btn-sm w-50 mx-auto mt-3">Actividades</a>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                                         <h6 class="text-white">Inscribite a las actividades:</h6>
                                     </div>
                                 </div>
-                                <a href="/actividades?act=hombres"
+                                <a href="/cruzdepiedra/public/actividades?act=hombres"
                                     class="btn btn-white btn-sm w-50 mx-auto mt-3">Actividades</a>
                             </div>
                         </div>
